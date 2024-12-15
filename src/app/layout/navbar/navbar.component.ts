@@ -1,16 +1,16 @@
 import {Component, effect, inject, OnInit} from '@angular/core';
-import {ButtonModule} from 'primeng/button';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {ToolbarModule} from 'primeng/toolbar';
-import {MenuModule} from 'primeng/menu';
-import {CategoryComponent} from './category/category.component';
-import {AvatarComponent} from './avatar/avatar.component';
-import {DialogService} from 'primeng/dynamicdialog';
 import {MenuItem} from 'primeng/api';
 import {ToastService} from '../toast.service';
 import {AuthService} from '../../core/auth/auth.service';
 import {User} from '../../core/model/user.model';
-
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ToolbarModule} from 'primeng/toolbar';
+import {MenuModule} from 'primeng/menu';
+import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
+import {CategoryComponent} from './category/category.component';
+import {AvatarComponent} from './avatar/avatar.component';
+import {ButtonModule} from 'primeng/button';
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -34,10 +34,14 @@ export class NavbarComponent implements OnInit {
 
   toastService = inject(ToastService);
   authService = inject(AuthService);
+  dialogService = inject(DialogService);
+  activatedRoute = inject(ActivatedRoute);
+  ref: DynamicDialogRef | undefined;
+
   login = () => this.authService.login();
   logout = () => this.authService.logout();
   currentMenuItems: MenuItem[] | undefined = []
-  private connectedUser: User = {email: this.authService.notConnected};
+   connectedUser: User = {email: this.authService.notConnected};
 
   constructor() {
     effect(() => {

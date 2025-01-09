@@ -17,11 +17,13 @@ import {CategoryName} from "../../layout/navbar/category/category.model";
 // import {DescriptionStepComponent} from "./step/description-step/description-step.component";
 // import {PriceStepComponent} from "./step/price-step/price-step.component";
 import {PriceVO} from "../model/listing-vo.model";
+import {CategoryStepComponent} from './category-step/category-step.component';
 
 @Component({
   selector: 'app-properties-create',
   standalone: true,
   imports: [
+    CategoryStepComponent,
     // CategoryStepComponent,
     // FooterStepComponent,
     // LocationStepComponent,

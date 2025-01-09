@@ -11,6 +11,7 @@ import {CategoryComponent} from './category/category.component';
 import {AvatarComponent} from './avatar/avatar.component';
 import {ButtonModule} from 'primeng/button';
 import {ActivatedRoute} from '@angular/router';
+import {PropertiesCreateComponent} from '../../landlord/properties-create/properties-create.component';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -90,5 +91,16 @@ export class NavbarComponent implements OnInit {
 
   hasToBeLandlord(): boolean {
     return this.authService.hasAnyAuthority("ROLE_LANDLORD");
+  }
+  openNewListing(): void {
+    this.ref = this.dialogService.open(PropertiesCreateComponent,
+      {
+        width: "60%",
+        header: "Airbnb your home",
+        closable: true,
+        focusOnShow: true,
+        modal: true,
+        showHeader: true
+      })
   }
 }

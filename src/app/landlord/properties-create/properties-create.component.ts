@@ -16,7 +16,7 @@ import {CategoryName} from "../../layout/navbar/category/category.model";
 // import {DescriptionStepComponent} from "./step/description-step/description-step.component";
 // import {PriceStepComponent} from "./step/price-step/price-step.component";
 import {PriceVO} from "../model/listing-vo.model";
-import {CategoryStepComponent} from './category-step/category-step.component';
+import {CategoryStepComponent} from './step/category-step/category-step.component';
 import {FooterStepComponent} from '../../shared/footer-step/footer-step.component';
 
 @Component({

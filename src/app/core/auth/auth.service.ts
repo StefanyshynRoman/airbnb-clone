@@ -35,6 +35,7 @@ export class AuthService {
 
   login(): void {
     location.href = `${location.origin}${this.location.prepareExternalUrl("oauth2/authorization/okta")}`;
+    console.log(this.isAuthenticated())
   }
 
   logout(): void {
@@ -50,6 +51,7 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     if (this.fetchUser$().value) {
+      console.log(this.fetchUser$().value)
       return this.fetchUser$().value!.email !== this.notConnected;
     } else {
       return false;
@@ -66,6 +68,8 @@ export class AuthService {
       return false;
     }
     if (!Array.isArray(authorities)) {
+      console.log(authorities)
+      console.log([authorities])
       authorities = [authorities];
     }
     return this.fetchUser$().value!.authorities!

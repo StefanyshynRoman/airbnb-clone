@@ -7,7 +7,7 @@
     </div>
     <div class="p-toolbar-group-center bg-white border-round-3xl p-0 border-1
                 border-gray-300 shadow-1 hover:shadow-2 middle-group search flex justify-content-around">
-<!--         (click)="openNewSearch()">-->
+         (click)="openNewSearch()">
       <button class="p-button border-round-left-3xl border-noround-right border-right-none
                     border-none bg-white text-dark focus:shadow-none">
         {{ location }}
@@ -29,7 +29,7 @@
     <div class="p-toolbar-group-end sm:hidden md:flex">
       @if (authService.isAuthenticated()) {
         <a class="p-button p-button-link" (click) ="openNewListing()">Airbnb your home </a>
-<!--           (click)="openNewListing()">Airbnb your home-->
+           (click)="openNewListing()">Airbnb your home
       }
       <p-menu #menu [model]="currentMenuItems" [popup]="true" styleClass="border-round-xl mt-1"></p-menu>
       <button (click)="menu.toggle($event)" class="menu flex align-content-center
